@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const yargs = require("yargs");
+const addStreamStructure = require("./cmds/produce");
 
 const produceDesc = `Enter Design bouquets format and flowers in the following order:
 
@@ -29,5 +30,5 @@ const argv = yargs
 const command = argv._[0];
 
 if (command === "produce") {
-  console.log(`Description: ${argv.add}`);
+  console.log(addStreamStructure(argv.add));
 }
