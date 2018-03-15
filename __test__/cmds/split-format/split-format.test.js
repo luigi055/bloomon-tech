@@ -3,7 +3,8 @@ const {
   getBoquetDesign,
   getBoquetSize,
   getTotalFlowers,
-  splitFlowersRule
+  splitFlowersRule,
+  composeFlowerWithSize
 } = require("./../../../cmds/produce/src/splitFormat");
 
 expect = chai.expect;
@@ -29,5 +30,10 @@ describe("Split Design rule in 3 parts", () => {
     expect(splitFlowersRule(rule))
       .to.be.an("array")
       .that.has.lengthOf(3);
+  });
+  it("composeFlowerWithSize should join a flower specie (a-z) with bouquet size (L or S)", () => {
+    expect(composeFlowerWithSize("d", "S"))
+      .to.be.a("string")
+      .that.is.equal("dS");
   });
 });

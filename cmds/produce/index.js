@@ -6,6 +6,7 @@ const {
 } = require("./src/splitFormat");
 
 const { enoughFlowers } = require("./src/compareStock");
+const { removeUsedFlowers } = require("./src/processFlowers");
 
 function addStreamStructure(data) {
   const values = data.split("\n");
@@ -37,6 +38,10 @@ function addStreamStructure(data) {
       buquetDesignSize,
       flowers
     );
+
+    // remove used flowers -----------------------
+    removeUsedFlowers(flowers, buquetDesignSize, flowerWithQuantity);
+    // remove used flowers -----------------------
 
     return passedSpec;
   });
