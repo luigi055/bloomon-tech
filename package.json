@@ -1,10 +1,17 @@
 {
   "name": "bloomon-production-facility",
   "version": "1.0.0",
-  "description": "bloomon tech challenge which consist a production facility to create bouquets of flowers.",
+  "description":
+    "bloomon tech challenge which consist a production facility to create bouquets of flowers.",
   "main": "index.js",
   "repository": "https://github.com/luigi055/bloomon-tech.git",
   "author": "Pedro La Rosa",
+  "bin": {
+    "bloomon": "index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
   "license": "MIT",
   "private": true,
   "dependencies": {
