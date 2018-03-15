@@ -17,8 +17,18 @@ function getBoquetSize(rule) {
 function splitFlowersRule(rule) {
   return rule
     .substring(2, rule.length - 2)
-    .split(/([0-9]+\w)/)
+    .split(/(\d+\w)/)
     .filter(spec => spec.length > 0);
+}
+
+function splitFlowersCenterRule(rule) {
+  const flowersRule = rule
+    .substring(2, rule.length - 2)
+    .split(/(\d+\w)/)
+    .filter(spec => spec.length > 0);
+
+  flowersRule.pop();
+  return flowersRule;
 }
 
 function composeFlowerWithSize(flowerWithQuantity, size) {
@@ -30,5 +40,6 @@ module.exports = {
   getBoquetDesign,
   getBoquetSize,
   splitFlowersRule,
-  composeFlowerWithSize
+  composeFlowerWithSize,
+  splitFlowersCenterRule
 };

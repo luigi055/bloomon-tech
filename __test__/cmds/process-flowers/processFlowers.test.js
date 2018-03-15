@@ -7,7 +7,8 @@ const {
 const {
   getBoquetSize,
   splitFlowersRule,
-  getTotalFlowers
+  getTotalFlowers,
+  splitFlowersCenterRule
 } = require("./../../../cmds/produce/src/splitFormat");
 const designSpecRule = require("./../seed");
 
@@ -80,5 +81,11 @@ describe("Process flowers storage", () => {
       totalFlowers
     );
     expect(flowers).to.have.lengthOf(969);
+  });
+
+  it("sumOfFlower - total flowers comparing", () => {
+    const rule = "AL15a1000b5c3000";
+    const flowerWithQuantity = splitFlowersCenterRule(rule);
+    expect(3000 - sumOfFlowers(flowerWithQuantity)).to.be.equal(3000 - 1020);
   });
 });

@@ -30,5 +30,5 @@ const argv = yargs
 const command = argv._[0];
 
 if (command === "produce") {
-  console.log(addStreamStructure(argv.add));
+  addStreamStructure(argv.add);
 }

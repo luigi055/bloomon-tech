@@ -2,13 +2,15 @@ const {
   getTotalFlowers,
   getBoquetDesign,
   getBoquetSize,
-  splitFlowersRule
+  splitFlowersRule,
+  splitFlowersCenterRule
 } = require("./src/splitFormat");
 
 const { enoughFlowers } = require("./src/compareStock");
 const {
   removeUsedFlowers,
-  removeExtraUsedFlowers
+  removeExtraUsedFlowers,
+  sumOfFlowers
 } = require("./src/processFlowers");
 
 function addStreamStructure(data) {
@@ -18,10 +20,9 @@ function addStreamStructure(data) {
   const flowers = values.filter(flower => flower.length === 2);
 
   console.log(
-    `flowers length should be 999 ${flowers.length}`,
-    `rules should be 6 ${rules.length}`
+    `flowers in storage ${flowers.length}`,
+    `rules to process ${rules.length}`
   );
-  console.log(flowers.length);
   // Compare if Buquet Design has the required amount of flowers
   const completedRules = rules.filter(rule => {
     // Detect the total amount of flowers
@@ -60,7 +61,12 @@ function addStreamStructure(data) {
     return passedSpec;
   });
 
-  return completedRules;
+  console.log(completedRules);
+  console.log(
+    `available flowers in storage ${flowers.length}`,
+    `processed rules ${completedRules.length}`
+  );
+  return;
 }
 
 module.exports = addStreamStructure;
