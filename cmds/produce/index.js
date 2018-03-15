@@ -5,6 +5,8 @@ const {
   splitFlowersRule
 } = require("./src/splitFormat");
 
+const { enoughFlowers } = require("./src/compareStock");
+
 function addStreamStructure(data) {
   const values = data.split("\n");
   const rules = values.filter(rule => rule.length > 2);
@@ -17,7 +19,7 @@ function addStreamStructure(data) {
   );
   console.log(flowers.length);
   // Compare if Buquet Design has the required amount of flowers
-  const completedRules = rules.map(rule => {
+  const completedRules = rules.filter(rule => {
     // Detect the total amount of flowers
     const totalFlowers = getTotalFlowers(rule);
     // Detect buquet design uppercase letter with Size (L = Large and S = Small)
@@ -29,7 +31,14 @@ function addStreamStructure(data) {
     // Detect the flowers with its quantities <Array>
     const flowerWithQuantity = splitFlowersRule(rule);
 
-    return rule;
+    // Compare with available flowers in stock
+    const passedSpec = enoughFlowers(
+      flowerWithQuantity,
+      buquetDesignSize,
+      flowers
+    );
+
+    return passedSpec;
   });
 
   return completedRules;
