@@ -13,6 +13,6 @@ describe("Split design spec rule", () => {
       .that.have.lengthOf(6);
     expect(flowers)
       .to.be.an("array")
-      .that.have.lengthOf(999);
+      .that.has.lengthOf(999);
   });
 });
