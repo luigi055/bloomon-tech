@@ -4,7 +4,8 @@ const {
   getBoquetSize,
   getTotalFlowers,
   splitFlowersRule,
-  composeFlowerWithSize
+  composeFlowerWithSize,
+  splitFlowersCenterRule
 } = require("./../../../cmds/produce/src/splitFormat");
 
 expect = chai.expect;

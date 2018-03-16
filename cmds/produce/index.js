@@ -36,6 +36,15 @@ function addStreamStructure(data) {
     // Detect the flowers with its quantities <Array>
     const flowerWithQuantity = splitFlowersRule(rule);
 
+    // if the sum of the flowers is higher than the total of flowers
+    // Specified in the rule the format is invalid
+    if (!(sumOfFlowers(flowerWithQuantity) - totalFlowers <= 0)) {
+      console.log(
+        `The format of ${rule} is incorrect. The sum of the flowers must be lower than the total`
+      );
+      return false;
+    }
+
     // Compare with available flowers in stock
     const passedSpec = enoughFlowers(
       flowerWithQuantity,
